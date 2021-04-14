@@ -1,7 +1,7 @@
-INDP optimization functions
+INRNG and INRBG functions
 =======================================================
-.. automodule:: indp
-    :members:
+.. automodule:: gameutils
+    :members:	
 .. toctree::
    :maxdepth: 2
    :caption: Topics:

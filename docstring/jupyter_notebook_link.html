@@ -1,0 +1,868 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Run INDP and Judgment Call &mdash; Decenalized Decision Making 0.3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Decenalized Decision Making
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Topics:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">Backend Classes and Modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Decenalized Decision Making</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Run INDP and Judgment Call</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/jupyter_notebook_link.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="run-indp-and-judgment-call">
+<h1>Run INDP and Judgment Call<a class="headerlink" href="#run-indp-and-judgment-call" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt>{</dt><dd><dl>
+<dt>“cells”: [</dt><dd><dl>
+<dt>{</dt><dd><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“# Runs INDP, td-INDP, Judgment Call, and infrastructure games”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 1,
+“metadata”: {},
+“outputs”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“name”: “stderr”,
+“output_type”: “stream”,
+“text”: [</p>
+<blockquote>
+<div><p>“WARNING (theano.configdefaults): g++ not available, if using conda: <cite>conda install m2w64-toolchain</cite>n”,
+“WARNING (theano.configdefaults): g++ not detected ! Theano will be unable to execute optimized C-implementations (for both CPU and GPU) and will default to Python implementations. Performance will be severely degraded. To remove this warning, set Theano flags cxx to an empty string.n”,
+“WARNING (theano.tensor.blas): Using NumPy C-API based implementation for BLAS functions.n”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [</p>
+<blockquote>
+<div><p>“Can’t find module ‘matlab.engine’n”,
+“Can’t find module ‘gambit’n”,
+“Directory changed to C:/Users/ht20/Documents/GitHub/td-DINDP/pyindpn”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>],
+“source”: [</p>
+<blockquote>
+<div><p>“import osn”,
+“import matplotlib.pyplot as pltn”,
+“import runutilsn”,
+“import dindputilsn”,
+“import gameutilsn”,
+“n”,
+“try:n”,
+”    # Change the current working Directoryn”,
+”    DIR_MAIN = ‘C:/Users/ht20/Documents/GitHub/td-DINDP/pyindp’n”,
+”    os.chdir(DIR_MAIN)n”,
+”    print(&quot;Directory changed to &quot;+DIR_MAIN)n”,
+“except OSError:n”,
+”    print(&quot;Can’t change the Current Working Directory&quot;)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“## Run a toy example for different methods “</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 2,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# plt.close(‘all’)n”,
+“# runutils.run_sample_problems()”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“## Run different methods for different networks, postprocess th outputs, and plot the resultn”,
+“### Input/Output file addressesn”,
+“1. <cite>BASE_DIR</cite>: the address of the folder where the basic network informationn”,
+“t(topology, parameters, etc.) is storedn”,
+“2. <cite>DAMAGE_DIR</cite>: the address of the folder where the damage information is storedn”,
+“3. <cite>OUTPUT_DIR</cite>: the address of the folder where the output files should be writtenn”,
+“4. <a href="#id1"><span class="problematic" id="id2">`</span></a>FILTER_SCE`(optional): The address of the list of scenarios that should be n”,
+“tincluded in the analyses. It is used to remove less damaging scenarios fromn”,
+“tthe list of damage scenarios. Set it to <em>None</em> if you don’t want to use this option.n”,
+“5. <a href="#id3"><span class="problematic" id="id4">`</span></a>PAYOFF_DIR`(only for Games): The address of the folder that contaions the objectsn”,
+“tthat store the payoff values for the game so that they are read from file andn”,
+“tnot calcualted again. Set it to <em>None</em> if you don’t want to use this option.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 3,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“BASE_DIR = ‘/home/hesam/Desktop/Files/Generated_Network_Dataset_v4/’n”,
+“# ‘/home/hesam/Desktop/Files/Generated_Network_Dataset_v4/’n”,
+“# &quot;../data/Extended_Shelby_County/&quot;n”,
+“# ‘C:/Users/ht20/Box Sync/Shelby County Database/Node_arc_info’n”,
+“# &quot;C:\\Users\\ht20\\Documents\\Files\\Generated_Network_Dataset_v3.1\\&quot;n”,
+“# &quot;/home/hesam/Desktop/Files/Generated_Network_Dataset_v3.1&quot;n”,
+“n”,
+“DAMAGE_DIR = ‘/home/hesam/Desktop/Files/Generated_Network_Dataset_v4/’n”,
+“# ‘/home/hesam/Desktop/Files/Generated_Network_Dataset_v4/’n”,
+“# ../data/random_disruption_shelby/&quot;n”,
+“#&quot;../data/Wu_Damage_scenarios/&quot; n”,
+“# &quot;C:\\Users\\ht20\\Documents\\Files\\Generated_Network_Dataset_v3.1\\&quot;n”,
+“# &quot;/home/hesam/Desktop/Files/Generated_Network_Dataset_v3.1&quot;n”,
+“# ‘C:/Users/ht20/Box Sync/Shelby County Database/Damage_scenarios’n”,
+“n”,
+“OUTPUT_DIR = ‘../results/’n”,
+“# ‘/home/hesam/Desktop/Files/Game_Shelby_County/results_NE/’n”,
+“# ‘C:/Users/ht20/Documents/Files/Game_Shelby_County/results_0.9_perc/’n”,
+“# ‘C:/Users/ht20/Documents/Files/Auction_Extended_Shelby_County_Data/results/’n”,
+“# ‘../results/’n”,
+“# ‘C:/Users/ht20/Documents/Files/Auction_synthetic_networks_v3.1/’n”,
+“# ‘C:/Users/ht20/Documents/Files/Shelby_data_paper/Restoration_results/’n”,
+“# FAIL_SCE_PARAM[‘TOPO’]+’/results/’n”,
+“n”,
+“FILTER_SCE = ‘../data/damagedElements_sliceQuantile_0.90.csv’n”,
+“n”,
+“n”,
+“### Directory with objects containing payoff values for gamesn”,
+“PAYOFF_DIR = OUTPUT_DIR+’General/results/reudced_action_matrix_100/’n”,
+“#’/home/hesam/Desktop/Files/Game_Shelby_County/results_NE_only_objs/’”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“### Set analysis dictionaries n”,
+“1. <cite>FAIL_SCE_PARAM</cite>: stores informatiom on the type of the damage scenario and n”,
+“tnetwork dataset. This dictionary should have the following items:n”,
+“t1. <cite>TYPE</cite>: type of the network. Options are <cite>shelby</cite> for the infrastructure network n”,
+“tof Shelby County, TN, and <cite>synthetic</cite> for the synthetic interdepndent dataset.n”,
+“t2. <cite>MAGS</cite>: the damage scenarios for all datasets comes in a two-level format.n”,
+“tThe implication of each level is different as explained below. <cite>MAGS</cite> sets n”,
+“tthe range of the scenarios in the first level that should be included in the n”,
+“tanalysis.n”,
+“t3. <cite>SAMPLE_RANGE</cite>: sets  the range of the scenarios in the second level thatn”,
+“tshould be included in the analysis.n”,
+“t4. <cite>BASE_DIR</cite>: sets the folder where the basic network information is stored.n”,
+“t5. <cite>DAMAGE_DIR</cite>: sets the folder where the damage information is storedn”,
+“t6. <cite>FILTER_SCE</cite> (optional): sets a given list of scenarios that should be n”,
+“tincluded in the analyses, and exculde the rest (mostly used with <strong>WU format</strong> below). n”,
+“t7. <cite>TOPO</cite> (only when <cite>TYPE`=*synthetic*): sets the topology of the sunthetic networks thatn”,
+“tshould be analyzedn”,
+“t&lt;br&gt;&lt;br&gt;n”,
+“tWhen the network dataset is the infrastructure network of Shelby County, TN,n”,
+“tthere are three formats for network data and damage scenarios files:n”,
+“t* **ANDRES**: this the old format that Andres Gonzalez employed during the n”,
+“tdevelopment of INDP, and is based on the input data for Xpress software.n”,
+“tThe network data that are available in this format are the first version Shleby n”,
+“tCounty dataset [cite] and the damage data are 1000 realizations of n”,
+“thazard maps correponding to hypothetical earthquakes with Magnitudes 6 to 9n”,
+“toccuring at a specific epicenter [cite] . To use this format, set the dictionary to:&lt;br&gt;n”,
+“t`{‘TYPE’:&quot;ANDRES&quot;, ‘SAMPLE_RANGE’:range(1, 1001), ‘MAGS’:[6, 7, 8, 9], ‘FILTER_SCE’:None,n”,
+“t  ‘BASE_DIR’:BASE_DIR, ‘DAMAGE_DIR’:DAMAGE_DIR}`&lt;br&gt;n”,
+“tHere, the range of magnitudes in the analysis is set by `MAGS</cite>, and for each magnitude,n”,
+“tthe range of analyzed samples is set by <cite>SAMPLE_RANGE</cite>.n”,
+“t* <strong>WU</strong>: this is the new format that is designed by Hesam Talebiyan andn”,
+“tused in the Shelby County data paper [cite]. The damage data for this dataset comesn”,
+“tin a format similar to the hazard maps from Jason Wu [cite], which consist of Nn”,
+“tsets (<cite>SAMPLE_RANGE</cite>) of M damage scenarios (<cite>MAGS</cite>). For shelby county, for example,n”,
+“tN=50 and M=96. To use this format, set the dictionary to:&lt;br&gt;n”,
+“t`{‘TYPE’:&quot;WU&quot;, ‘SAMPLE_RANGE’:range(50), ‘MAGS’:range(96),’FILTER_SCE’:FILTER_SCE,n”,
+“t  ‘BASE_DIR’:BASE_DIR, ‘DAMAGE_DIR’:DAMAGE_DIR}`n”,
+“t* <strong>from_csv</strong>: this type uses the same network data format as the <strong>WU format</strong>.n”,
+“tHowever, the damage data come in the form of two csv files that contain all damage datan”,
+“tfor nodes and arcs. This is a more compressed representation of damage data. In this format,n”,
+“tthere is only one <cite>MAGS`=0, and `SAMPLE_RANGE</cite> defines all scenarios that should be analyzed.n”,
+“tTo use this format, set the dictionary to:&lt;br&gt;n”,
+“t`{‘TYPE’:&quot;from_csv&quot;, ‘SAMPLE_RANGE’:range(100), ‘MAGS’:range(0, 1), ‘FILTER_SCE’:None,n”,
+“t  ‘BASE_DIR’:BASE_DIR, ‘DAMAGE_DIR’:DAMAGE_DIR}`n”,
+“t&lt;br&gt;&lt;br&gt;n”,
+“tWhen the network dataset is synthetic, there are one format for network data andn”,
+“tdamage scenarios files:&lt;br&gt;&lt;br&gt;n”,
+“t* <strong>synthetic</strong>: in this format network data and damage data are in the same folder, andn”,
+“thence, <cite>BASE_DIR`= `DAMAGE_DIR</cite>. Also, <cite>MAGS</cite> represents the range of network configuration, and n”,
+“t`SAMPLE_RANGE` sets the range of sampele network for each configuraytion in the analysis.n”,
+“tTo use this format, set the dictionary to:&lt;br&gt;n”,
+“t`{‘TYPE’:&quot;synthetic&quot;, ‘SAMPLE_RANGE’:range(0, 1), ‘MAGS’:range(0, 100), ‘FILTER_SCE’:None,n”,
+“t  ‘TOPO’:’General’, ‘BASE_DIR’:BASE_DIR, ‘DAMAGE_DIR’:DAMAGE_DIR}`n”,
+“t&lt;br&gt;&lt;br&gt;n”,
+“2. <cite>DYNAMIC_PARAMS</cite>: sets the features of the models that incorporate dynamic parametersn”,
+“tinto the analysis. Set it to <em>None</em> if you want to use static paramters that aren”,
+“tconstant for different time steps. So far, we only have one type of dynamic paramters,n”,
+“twhich is the dynamic demand that is calculated based on population dislocation models, n”,
+“tfor which, the dictionary should have the following items:n”,
+“t1. <cite>TYPE</cite>: type of the dislocation data (see below).n”,
+“t2. <cite>RETURN</cite>: type of the model for the return of dislocated population. Optionsn”,
+“tare <em>step_function</em> and <em>linear</em>.n”,
+“t3. <cite>DIR</cite>: sets the folder where the dislocation data are stored.n”,
+“t4. <cite>TESTBED</cite> (only when <cite>TYPE`=*incore*) : sets the name of the testbed in analysis.n”,
+“t&lt;br&gt;&lt;br&gt;n”,
+“tThe are two types of dislocation data:n”,
+“t* **shelby_adopted**: this is a precalculated dictionary that stores stylized n”,
+“tdislocation  data for Shelby County dataset and the code reads those files.n”,
+“tTo use this type, set the dictionary to:&lt;br&gt; n”,
+“t`{‘TYPE’: ‘shelby_adopted’, ‘RETURN’: ‘step_function’, ‘DIR’: ‘C:/Users/ht20/Documents/Files/dynamic_demand/’}</cite>n”,
+“t* <strong>incore</strong>: this type uses the population dislocation models and householdn”,
+“tunit allocation data from IN-CORE (stored locally) to calculate demand values n”,
+“tin each time step of the analysis. To use this type, set the dictionary to:&lt;br&gt;n”,
+“t`{‘TYPE’: ‘incore’, ‘RETURN’: ‘step_function’, ‘TESTBED’:’Joplin’, ‘DIR’: ‘C:/Users/ht20/Documents/GitHub/NIST_testbeds/’}`n”,
+“t&lt;br&gt;&lt;br&gt;n”,
+“3. <cite>STM_MODEL_DICT</cite>: contains information about the statistical models approximating INDP,n”,
+“twhich are used for valution methods in auction-based resource allocation. Set it to <em>None</em>n”,
+“tif <cite>VAL_TYPE</cite> does not include <em>STM</em> (see below). Otherwise, the dictionary should haven”,
+“tthe following items:n”,
+“t1. <cite>num_pred</cite>: number of model prediction that are used to calculate each valuation.n”,
+“t2. <cite>model_dir</cite>: the folder that contains the statistical model files.n”,
+“t3. <cite>param_folder</cite>: the folder that contains the statistical model parameters.&lt;br&gt;n”,
+“tExample: &lt;br&gt;n”,
+“t`MODEL_DIR = ‘C:/Users/ht20/Documents/Files/STAR_models/Shelby_final_all_Rc’n”,
+“tSTM_MODEL_DICT = {‘num_pred’:1, ‘model_dir’:MODEL_DIR+’/traces’, ‘param_folder’:MODEL_DIR+’/parameters’}`”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 4,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“FAIL_SCE_PARAM = {‘TYPE’:&quot;synthetic&quot;, ‘SAMPLE_RANGE’:range(0, 1), ‘MAGS’:range(0, 100),n”,
+“tttt  ‘FILTER_SCE’:None, ‘TOPO’:’General’, ‘BASE_DIR’:BASE_DIR,n”,
+“tttt  ‘DAMAGE_DIR’:DAMAGE_DIR}n”,
+“DYNAMIC_PARAMS = Nonen”,
+“STM_MODEL_DICT = Nonen”,
+“n”,
+“# Adjust output and base dir for sythetic database based on <cite>FAIL_SCE_PARAM</cite>n”,
+“SYNTH_DIR = Nonen”,
+“if FAIL_SCE_PARAM[‘TYPE’] == ‘synthetic’:n”,
+“tSYNTH_DIR = BASE_DIR+FAIL_SCE_PARAM[‘TOPO’]+’Networks/’n”,
+“tOUTPUT_DIR += FAIL_SCE_PARAM[‘TOPO’]+’/results/’”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“### Set analysis parameters n”,
+“1. <cite>RC</cite>: list of resource caps or the number of available reousrces in each step of the n”,
+“tanalysis. n”,
+“t* If <cite>FAIL_SCE_PARAM[TYPE’]`=*synthetic*, this item is not necessaary. `R_c</cite> isn”,
+“tadjusted for each configuration. Set it to to <cite>R_c`=[0]n”,
+“t* If `FAIL_SCE_PARAM[TYPE’]`=*shelby*, you have to options.n”,
+“tt* if, for example, `R_c`= [3, 6, 8, 12], then the analysis is done for the casesn”,
+“ttwhen threr are 3, 6, 8, and 12 resources available (total reource assignment).n”,
+“tt* if, for example, `R_c`= [[1, 1], [1, 2], [3, 3]] and given there are 2 layers,n”,
+“ttthen the analysis is done for the case where each layer gets 1 resource, ANDn”,
+“ttthe case where layer 1 gets 1 and layer 2 gets 2 resources, AND n”,
+“ttthe case where each layer gets 3 resource (Prescribed resource for each layer).n”,
+“2. `LAYERS</cite>: list of layers in the analysis. n”,
+“t* If <cite>FAIL_SCE_PARAM[TYPE’]`=*synthetic*, this item is not necessaary. `LAYERS</cite> isn”,
+“tadjusted for each configuration. Set it to to <cite>LAYERS`=[0]n”,
+“3. `JUDGE_TYPE</cite>: list of judgment types that are used in JC method and/or computing valuationsn”,
+“tfor auction-based allocation [cite]. Options are <em>OPTIMISTIC</em>, <em>PESSIMISTIC</em>, <em>DEMAND</em>,n”,
+“t*DET-DEMAND*, and <em>RANDOM</em>. n”,
+“4. <cite>RES_ALLOC_TYPE</cite>: list of resource allocation types that are used in JC method [cite].n”,
+“tOptions are <em>MDA</em>, <em>MAA</em>, <em>MCA</em>, <em>UNIFORM</em>, and <em>OPTIMAL</em>. n”,
+“5. <cite>VAL_TYPE</cite>: list of valuation types that are used in auction-based resource allocationn”,
+“tmethod [cite], i.e. when <cite>RES_ALLOC_TYPE</cite> includes at least one of the options <em>MDA</em>,n”,
+“t*MAA*, or <em>MCA</em>.n”,
+“tOptions are <em>DTC</em>, <em>DTC_uniform</em>, <em>MDDN</em>, <em>STM</em>, and <em>DTC-LP</em>. “</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 5,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“RC = [0]n”,
+“LAYERS = [1, 2, 3, 4]n”,
+“JUDGE_TYPE = [&quot;OPTIMISTIC&quot;]n”,
+“RES_ALLOC_TYPE = [‘UNIFORM’, ‘OPTIMAL’]n”,
+“VAL_TYPE = [‘DTC’]”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“### Run method(s)n”,
+“There are five choices of method:n”,
+“1. <cite>INDP</cite>: runs Interdependent Network Restoration Problem (INDP) [cite]. To run this method,n”,
+“tyou have to call:&lt;br&gt;n”,
+“t`runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’INDP’, output_dir=OUTPUT_DIR,n”,
+“tmisc = {‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS})`n”,
+“2. <cite>TDINDP</cite>: runs time-dependent INDP (td-INDP) [cite]. To run this method,n”,
+“tyou have to call:&lt;br&gt;n”,
+“t`runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’TDINDP’, output_dir=OUTPUT_DIR,n”,
+“tmisc = {‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS}))`n”,
+“3. <cite>JC</cite>: runs Judgment Call (JC) method, which is a decentralized version of INDP [cite]. To run this method,n”,
+“tyou have to call:&lt;br&gt;n”,
+“t`runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’JC’, judgment_type=JUDGE_TYPE,n”,
+“tres_alloc_type=RES_ALLOC_TYPE, valuation_type=VAL_TYPE,n”,
+“toutput_dir=OUTPUT_DIR, dynamic_params=DYNAMIC_PARAMS,n”,
+“tmisc = {‘STM_MODEL’:STM_MODEL_DICT, ‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS})`n”,
+“4. <cite>NORMALGAME</cite>: runs Interdependent Network Restoration Normal Game (INRNG), which is an”,
+“tdecentralized version of INDP [cite]. To run this method, you have to call:&lt;br&gt;n”,
+“t`runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’NORMALGAME’, judgment_type=JUDGE_TYPE,n”,
+“tres_alloc_type=RES_ALLOC_TYPE, valuation_type=VAL_TYPE, output_dir=OUTPUT_DIR, n”,
+“tmisc = {‘PAYOFF_DIR’:PAYOFF_DIR, ‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS,n”,
+”   ‘REDUCED_ACTIONS’:’EDM’}`&lt;br&gt;n”,
+“tHere, <cite>misc[‘REDUCED_ACTIONS’]</cite> sets the hueristic method to reduce the number of actions ofn”,
+“teach player to add Bounded Rationality to the analysis. Options are <em>ER</em> for exhasuting resources, n”,
+“tand <em>EDM</em> for expert decision maker.n”,
+“5. <cite>BAYESGAME</cite>: runs Interdependent Network Restoration Bayesian Game (INRBG), which is an”,
+“tdecentralized version of INDP [cite]. To run this method, you have to call:&lt;br&gt;n”,
+“t`runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’BAYESGAME’, judgment_type=JUDGE_TYPE,n”,
+“tres_alloc_type=RES_ALLOC_TYPE, valuation_type=VAL_TYPE, output_dir=OUTPUT_DIR,n”,
+“tmisc = {‘PAYOFF_DIR’:PAYOFF_DIR, ‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS,n”,
+“t&quot;SIGNALS&quot;:{1:’C’, 2:’C’}, &quot;BELIEFS&quot;:{1:’U’, 2:’U’},n”,
+“t’REDUCED_ACTIONS’:’EDM’}`&lt;br&gt;n”,
+“tHere, <cite>misc[‘SIGNALS’]</cite> sets the actual type of each player in the game. Options are <em>C</em> forn”,
+“tcooperative and <em>N</em> for non-cooperative.&lt;br&gt;n”,
+“tAlso, <cite>misc[‘BELIEFS’]</cite> sets the belief of each player in the game. Options are <em>U</em> forn”,
+“tuniformed belief, <em>F</em> for false consensus bias, and <em>I</em> for inverse false consensus bias.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 6,
+“metadata”: {},
+“outputs”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [</p>
+<blockquote>
+<div><p>“—-Running for resources: 0n”,
+“—Running Magnitude 0 sample 0…n”,
+“Initializing network…n”,
+“Initiallize Damage…n”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“ename”: “FileNotFoundError”,
+“evalue”: “[Errno 2] No such file or directory: ‘/home/hesam/Desktop/Files/Generated_Network_Dataset_v4//GeneralNetworks/List_of_Configurations.txt’”,
+“output_type”: “error”,
+“traceback”: [</p>
+<blockquote>
+<div><p>“u001b[1;31m—————————————————————————u001b[0m”,
+“u001b[1;31mFileNotFoundErroru001b[0m                         Traceback (most recent call last)”,
+“u001b[1;32m&lt;ipython-input-6-e6f69f057d48&gt;u001b[0m in u001b[0;36m&lt;module&gt;u001b[1;34mu001b[0mnu001b[1;32m—-&gt; 1u001b[1;33m runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’INDP’, output_dir=OUTPUT_DIR,nu001b[0mu001b[0;32m      2u001b[0m tttttmisc = {‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS})nu001b[0;32m      3u001b[0m u001b[1;31m# runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’TDINDP’, output_dir=OUTPUT_DIR,u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m      4u001b[0m u001b[1;31m#                     misc = {‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS})u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m      5u001b[0m u001b[1;31m# runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’JC’, judgment_type=JUDGE_TYPE,u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mn”,
+“u001b[1;32m~\Documents\GitHub\td-DINDP\pyindp\runutils.pyu001b[0m in u001b[0;36mrun_methodu001b[1;34m(fail_sce_param, v_r, layers, method, judgment_type, res_alloc_type, valuation_type, output_dir, misc)u001b[0mnu001b[0;32m    198u001b[0m             u001b[0mparamsu001b[0mu001b[1;33m[u001b[0mu001b[1;34m’OUTPUT_DIR’u001b[0mu001b[1;33m]u001b[0m u001b[1;33m=u001b[0m u001b[0mparamsu001b[0mu001b[1;33m[u001b[0mu001b[1;34m’OUTPUT_DIR’u001b[0mu001b[1;33m]u001b[0mu001b[1;33m.u001b[0mu001b[0mreplaceu001b[0mu001b[1;33m(u001b[0mu001b[0mprefixu001b[0mu001b[1;33m,u001b[0mu001b[1;34m’<a href="#id5"><span class="problematic" id="id6">dp_</span></a>’u001b[0mu001b[1;33m+u001b[0mu001b[0mprefixu001b[0mu001b[1;33m)u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m    199u001b[0m u001b[1;33mu001b[0mu001b[0mnu001b[1;32m–&gt; 200u001b[1;33m         u001b[0mbatch_runu001b[0mu001b[1;33m(u001b[0mu001b[0mparamsu001b[0mu001b[1;33m,u001b[0m u001b[0mfail_sce_paramu001b[0mu001b[1;33m)u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0mu001b[0;32m    201u001b[0m u001b[1;33mu001b[0mu001b[0mnu001b[0;32m    202u001b[0m u001b[1;32mdefu001b[0m u001b[0mrun_indp_sampleu001b[0mu001b[1;33m(u001b[0mu001b[0mlayersu001b[0mu001b[1;33m)u001b[0mu001b[1;33m:u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mn”,
+“u001b[1;32m~\Documents\GitHub\td-DINDP\pyindp\runutils.pyu001b[0m in u001b[0;36mbatch_runu001b[1;34m(params, fail_sce_param)u001b[0mnu001b[0;32m     71u001b[0m                             infrastructure_data=infrastructure_data)nu001b[0;32m     72u001b[0m             u001b[1;32melseu001b[0mu001b[1;33m:u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[1;32m—&gt; 73u001b[1;33m                 params[&quot;N&quot;], params[&quot;V&quot;], params[‘L’] = indp.initialize_network(BASE_DIR=base_dir,nu001b[0mu001b[0;32m     74u001b[0m                             u001b[0mexternal_interdependency_diru001b[0mu001b[1;33m=u001b[0mu001b[0mext_interdependencyu001b[0mu001b[1;33m,u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m     75u001b[0m                             u001b[0mmagnitudeu001b[0mu001b[1;33m=u001b[0mu001b[0mmu001b[0mu001b[1;33m,u001b[0m u001b[0msampleu001b[0mu001b[1;33m=u001b[0mu001b[0miu001b[0mu001b[1;33m,u001b[0m u001b[0minfrastructure_datau001b[0mu001b[1;33m=u001b[0mu001b[0minfrastructure_datau001b[0mu001b[1;33m,u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mn”,
+“u001b[1;32m~\Documents\GitHub\td-DINDP\pyindp\indp.pyu001b[0m in u001b[0;36minitialize_networku001b[1;34m(BASE_DIR, external_interdependency_dir, sim_number, cost_scale, magnitude, sample, v, infrastructure_data, topology)u001b[0mnu001b[0;32m    525u001b[0m     u001b[1;31m#    print &quot;Data loaded.&quot; #!!!u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m    526u001b[0m     u001b[1;32melseu001b[0mu001b[1;33m:u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[1;32m–&gt; 527u001b[1;33m         InterdepNet,v_temp,layers_temp=load_synthetic_network(BASE_DIR=BASE_DIR, topology=topology,nu001b[0mu001b[0;32m    528u001b[0m                                                               u001b[0mconfigu001b[0mu001b[1;33m=u001b[0mu001b[0mmagnitudeu001b[0mu001b[1;33m,u001b[0m u001b[0msampleu001b[0mu001b[1;33m=u001b[0mu001b[0msampleu001b[0mu001b[1;33m,u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m    529u001b[0m                                                               cost_scale=cost_scale)n”,
+“u001b[1;32m~\Documents\GitHub\td-DINDP\pyindp\infrastructure.pyu001b[0m in u001b[0;36mload_synthetic_networku001b[1;34m(BASE_DIR, topology, config, sample, cost_scale)u001b[0mnu001b[0;32m    779u001b[0m     u001b[0mnet_diru001b[0m u001b[1;33m=u001b[0m u001b[0mBASE_DIRu001b[0mu001b[1;33m+u001b[0mu001b[1;34m’/’u001b[0mu001b[1;33m+u001b[0mu001b[0mtopologyu001b[0mu001b[1;33m+u001b[0mu001b[1;34m’Networks/’u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m    780u001b[0m     u001b[0mtopo_initialu001b[0m u001b[1;33m=u001b[0m u001b[1;33m{u001b[0mu001b[1;34m’Random’u001b[0mu001b[1;33m:u001b[0mu001b[1;34m’RN’u001b[0mu001b[1;33m,u001b[0mu001b[1;34m’ScaleFree’u001b[0mu001b[1;33m:u001b[0mu001b[1;34m’SFN’u001b[0mu001b[1;33m,u001b[0mu001b[1;34m’Grid’u001b[0mu001b[1;33m:u001b[0mu001b[1;34m’GN’u001b[0mu001b[1;33m,u001b[0m u001b[1;34m’General’u001b[0mu001b[1;33m:u001b[0m u001b[1;34m’GEN’u001b[0mu001b[1;33m}u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[1;32m–&gt; 781u001b[1;33m     u001b[1;32mwithu001b[0m u001b[0mopenu001b[0mu001b[1;33m(u001b[0mu001b[0mnet_diru001b[0mu001b[1;33m+u001b[0mu001b[1;34m’List_of_Configurations.txt’u001b[0mu001b[1;33m)u001b[0m u001b[1;32masu001b[0m u001b[0mfu001b[0mu001b[1;33m:u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0mu001b[0;32m    782u001b[0m         u001b[0mconfig_datau001b[0m u001b[1;33m=u001b[0m u001b[0mpdu001b[0mu001b[1;33m.u001b[0mu001b[0mread_csvu001b[0mu001b[1;33m(u001b[0mu001b[0mfu001b[0mu001b[1;33m,u001b[0m u001b[0mdelimiteru001b[0mu001b[1;33m=u001b[0mu001b[1;34m’\t’u001b[0mu001b[1;33m)u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mnu001b[0;32m    783u001b[0m         u001b[0mconfig_datau001b[0m u001b[1;33m=u001b[0m u001b[0mconfig_datau001b[0mu001b[1;33m.u001b[0mu001b[0mrenameu001b[0mu001b[1;33m(u001b[0mu001b[0mcolumnsu001b[0mu001b[1;33m=u001b[0mu001b[1;32mlambdau001b[0m u001b[0mxu001b[0mu001b[1;33m:u001b[0m u001b[0mxu001b[0mu001b[1;33m.u001b[0mu001b[0mstripu001b[0mu001b[1;33m(u001b[0mu001b[1;33m)u001b[0mu001b[1;33m)u001b[0mu001b[1;33mu001b[0mu001b[1;33mu001b[0mu001b[0mn”,
+“u001b[1;31mFileNotFoundErroru001b[0m: [Errno 2] No such file or directory: ‘/home/hesam/Desktop/Files/Generated_Network_Dataset_v4//GeneralNetworks/List_of_Configurations.txt’”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>],
+“source”: [</p>
+<blockquote>
+<div><p>“runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’INDP’, output_dir=OUTPUT_DIR,n”,
+“tttttmisc = {‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS})n”,
+“# runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’TDINDP’, output_dir=OUTPUT_DIR,n”,
+“#                     misc = {‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS})n”,
+“# runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’JC’, judgment_type=JUDGE_TYPE,n”,
+“#                     res_alloc_type=RES_ALLOC_TYPE, valuation_type=VAL_TYPE,n”,
+“#                     output_dir=OUTPUT_DIR, dynamic_params=DYNAMIC_PARAMS,n”,
+“#                     misc = {‘STM_MODEL’:STM_MODEL_DICT, ‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS})n”,
+“runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’NORMALGAME’, judgment_type=JUDGE_TYPE,n”,
+“tttttres_alloc_type=RES_ALLOC_TYPE, valuation_type=VAL_TYPE, output_dir=OUTPUT_DIR, n”,
+“tttttmisc = {‘PAYOFF_DIR’:PAYOFF_DIR, ‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS,n”,
+“ttttt’REDUCED_ACTIONS’:’EDM’})n”,
+“runutils.run_method(FAIL_SCE_PARAM, RC, LAYERS, method=’BAYESGAME’, judgment_type=JUDGE_TYPE,n”,
+“tttres_alloc_type=RES_ALLOC_TYPE, valuation_type=VAL_TYPE, output_dir=OUTPUT_DIR,n”,
+“tttmisc = {‘PAYOFF_DIR’:PAYOFF_DIR, ‘DYNAMIC_PARAMS’:DYNAMIC_PARAMS,n”,
+“ttttt&quot;SIGNALS&quot;:{1:’C’, 2:’C’}, &quot;BELIEFS&quot;:{1:’U’, 2:’U’},n”,
+“ttttt’REDUCED_ACTIONS’:’EDM’})”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“### Post-processing n”,
+“First, you have to set a few parameters and then call functions that read outputsn”,
+“and generate the panda datframes that are needed for plotting the results.n”,
+“##### Post-processing parametersn”,
+“1. <cite>COST_TYPES</cite>: type of cost that should be used in processing the outputs. Options n”,
+“are <em>Total</em>, <em>Under Supply</em>, <em>Over Supply</em>, <em>Node</em>, <em>Arc</em>, <em>Flow</em>, <em>Space Prep</em>, <em>Under Supply Perc</em>.n”,
+“2. <cite>REF_METHOD</cite>: the method that served as the reference in computing the reative performancen”,
+“and allocation gap. Usually, this is aan optimal methods like <cite>indp</cite> or <cite>tdindp</cite>. However,n”,
+“it can be any other method lik <cite>jc</cite>, <cite>ng</cite>, or else.n”,
+“3. <cite>METHOD_NAMES</cite>: methods whose output should be read. Options are <cite>indp</cite>, <cite>tdindp</cite>, <cite>jc</cite>,n”,
+“<cite>ng</cite>, <cite>dp_indp</cite>, <cite>dp_jc</cite>, <cite>bg????</cite> (For example <cite>bgNCUI</cite> means the Bayesiab game withn”,
+“two players where the first player is non-cooperative and uses uninformative belief,n”,
+“and the second one is cooperative and uses the inverse false consensus belief).n”,
+“n”,
+“##### Post-processing functionsn”,
+“1. <cite>generate_combinations</cite>: generate all the combination of oututs that should be read andn”,
+“save them in <cite>COMBS</cite> and <cite>OPTIMAL_COMBS</cite> lists.n”,
+“2. <cite>read_results</cite>: read results for combinations in <cite>COMBS</cite> and <cite>OPTIMAL_COMBS</cite> lists.n”,
+“3. <cite>relative_performance</cite>: computes relative performance measures  for different combinations.n”,
+“4. <cite>read_resourcec_allocation</cite>: read the resource allocations by different methods andn”,
+“compute allocation gaps  for different combinations.n”,
+“5. <cite>read_run_time</cite>: compute run time for different combinations.n”,
+“6. <cite>analyze_NE</cite>: analyze the characteristics of Nash equilibria for different combinations.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“COST_TYPES = [‘Total’] # ‘Under Supply’, ‘Over Supply’n”,
+“REF_METHOD = ‘indp’n”,
+“METHOD_NAMES = [‘indp’,’ng’, ‘bgCCUU’] n”,
+“# #’ng’, ‘jc’, ‘dp_indp’, ‘tdindp’,n”,
+“# #’bgNNNNUUUU’,’bgCCCCUUUU’, ‘bgCCNCUUUU’, ‘bgCCCCFFFF’, ‘bgNNNNFFFF’, ‘bgCCNCFFFF’n”,
+“# #’bgCCCCIIII’,’bgNNNNIIII’, ‘bgCCNCIIII’,n”,
+“n”,
+“COMBS, OPTIMAL_COMBS = dindputils.generate_combinations(FAIL_SCE_PARAM[‘TYPE’],n”,
+“tttFAIL_SCE_PARAM[‘MAGS’], FAIL_SCE_PARAM[‘SAMPLE_RANGE’], LAYERS,n”,
+“tttRC, METHOD_NAMES, JUDGE_TYPE, RES_ALLOC_TYPE, VAL_TYPE,n”,
+“tttlist_high_dam_add=FAIL_SCE_PARAM[‘FILTER_SCE’],n”,
+“tttsynthetic_dir=SYNTH_DIR)n”,
+“n”,
+“BASE_DF, objs = dindputils.read_results(COMBS, OPTIMAL_COMBS, COST_TYPES,n”,
+“tttttttttroot_result_dir=OUTPUT_DIR, deaggregate=True)n”,
+“n”,
+“LAMBDA_DF = dindputils.relative_performance(BASE_DF, COMBS, OPTIMAL_COMBS,n”,
+“ttttttttttref_method=REF_METHOD, cost_type=COST_TYPES[0])n”,
+“RES_ALLOC_DF, ALLOC_GAP_DF = dindputils.read_resourcec_allocation(BASE_DF, COMBS, OPTIMAL_COMBS,n”,
+“ttttttttttttttt  objs, root_result_dir=OUTPUT_DIR,n”,
+“ttttttttttttttt  ref_method=REF_METHOD)n”,
+“RUN_TIME_DF = dindputils.read_run_time(COMBS, OPTIMAL_COMBS, objs, root_result_dir=OUTPUT_DIR)n”,
+“ANALYZE_NE_DF = gameutils.analyze_NE(objs, COMBS, OPTIMAL_COMBS)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“### Save Variables to filen”,
+“All dictionaries that are made in the postprocessing step are saved here.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 7,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# OBJ_LIST = [COMBS, OPTIMAL_COMBS, BASE_DF, METHOD_NAMES, LAMBDA_DF,n”,
+“#             RES_ALLOC_DF, ALLOC_GAP_DF, RUN_TIME_DF, COST_TYPES, ANALYZE_NE_DF]n”,
+“n”,
+“# ## Saving the objects ###n”,
+“# with open(OUTPUT_DIR+’postprocess_dicts.pkl’, ‘wb’) as f:n”,
+“#     pickle.dump(OBJ_LIST, f)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>” n”,
+“### Plot results n”,
+“Plot functions use the dictionaries that are made in the postprocessing step to n”,
+“make output figures:n”,
+“1. <cite>plot_performance_curves</cite>: plots costs (in <cite>COST_TYPES</cite>) and unmet demand vs. time.n”,
+“2. <cite>plot_seperated_perform_curves</cite>: plots costs (in <cite>COST_TYPES</cite>) vs. time for each layer sepearately.n”,
+“3. <cite>plot_relative_performance</cite>: plots relative performances.n”,
+“4. <cite>plot_auction_allocation</cite>: plots reosurce allocation vs. time.n”,
+“5. <cite>plot_relative_allocation</cite>: plots allocation gaps.n”,
+“6. <cite>plot_run_time</cite>: plots run time vs. time.n”,
+“7. <cite>plot_ne_analysis</cite>: plots NE analysis measures vs. time (for games only).n”,
+“8. <cite>plot_ne_cooperation</cite>: plots action types vs. time (for games only).n”,
+“9. <cite>plot_payoff_hist</cite>: plots size of the payoff matrix vs. time (for games only).”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: 8,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“plt.close(‘all’)n”,
+“# ### Getting back the objects ###n”,
+“# with open(OUTPUT_DIR+’postprocess_dicts.pkl’, ‘rb’) as f:n”,
+“#     [COMBS, OPTIMAL_COMBS, BASE_DF, METHOD_NAMES, LAMBDA_DF, RES_ALLOC_DF,n”,
+“#       ALLOC_GAP_DF, RUN_TIME_DF, COST_TYPE, ANALYZE_NE_DF] = pickle.load(f)n”,
+“n”,
+“# plots.plot_performance_curves(BASE_DF,n”,
+“#                               cost_type=’Total’, ci=95,n”,
+“#                               deaggregate=False, plot_resilience=False)n”,
+“n”,
+“# # plots.plot_seperated_perform_curves(BASE_DF, x=’t’, y=’cost’, cost_type=’Total’,n”,
+“# #                                     ci=95, normalize=False)n”,
+“n”,
+“# plots.plot_relative_performance(LAMBDA_DF, lambda_type=’U’)n”,
+“# # plots.plot_auction_allocation(RES_ALLOC_DF, ci=95)n”,
+“# # plots.plot_relative_allocation(ALLOC_GAP_DF, distance_type=’gap’)n”,
+“# # plots.plot_run_time(RUN_TIME_DF, ci=95)n”,
+“# plots.plot_ne_analysis(ANALYZE_NE_DF, ci=95)n”,
+“# plots.plot_ne_cooperation(ANALYZE_NE_DF, ci=95)n”,
+“# plots.plot_payoff_hist(ANALYZE_NE_DF, compute_payoff_numbers=True, outlier=False)n”,
+“n”,
+” #[(ANALYZE_NE_DF[‘auction_type’]!=’UNIFORM’)]”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>],
+“metadata”: {</p>
+<blockquote>
+<div><p>“anaconda-cloud”: {},
+“kernelspec”: {</p>
+<blockquote>
+<div><p>“display_name”: “Python 3”,
+“language”: “python”,
+“name”: “python3”</p>
+</div></blockquote>
+<p>},
+“language_info”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
+“version”: 3</p>
+</dd>
+</dl>
+<p>},
+“file_extension”: “.py”,
+“mimetype”: “text/x-python”,
+“name”: “python”,
+“nbconvert_exporter”: “python”,
+“pygments_lexer”: “ipython3”,
+“version”: “3.8.5”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+“nbformat”: 4,
+“nbformat_minor”: 4</p>
+</dd>
+</dl>
+<p>}</p>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SISRRA.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
