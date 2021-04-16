@@ -4,11 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
+    <meta property="article:modified_time" content="2021-03-17T19:05:30-05:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Judgment Call functions &mdash; Decenalized Decision Making 0.3.0 documentation</title>
+  <title>Judgment Call functions &mdash; Dec2py 1b6f5e3 documentation</title>
   
 
   
@@ -58,7 +58,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> Decenalized Decision Making
+            <a href="index.html" class="icon icon-home"> Dec2py
           
 
           
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                0.3.0
+                0.4.0
               </div>
             
           
@@ -93,8 +93,10 @@
               
             
             
-              <p><span class="caption-text">Topics:</span></p>
+              <p class="caption"><span class="caption-text">Topics</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="run_samples.html">Interdepndent Network Restoration Decision-making (toy example)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_main.html">Interdepndent Network Restoration Decision-making (Complete Analysis Dashboard)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="backend.html">Backend Classes and Modules</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="runutils.html">High-level analysis modules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indp.html">INDP optimization functions</a></li>
@@ -109,8 +111,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dindpclasses.html">Judgment Call Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gameutils.html">INRNG and INRBG functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gameclasses.html">INRNG and INRBG Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gameutils.html">INRSG and INRBG functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gameclasses.html">INRSG and INRBG Classes</a></li>
 </ul>
 </li>
 </ul>
@@ -128,7 +130,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Decenalized Decision Making</a>
+          <a href="index.html">Dec2py</a>
         
       </nav>
 
@@ -206,12 +208,12 @@
     text-align: unset;
 }
 </style>
-<section id="module-dindputils">
+<div class="section" id="module-dindputils">
 <span id="judgment-call-functions"></span><h1>Judgment Call functions<a class="headerlink" href="#module-dindputils" title="Permalink to this headline">¶</a></h1>
 <p>This module contains functions to run decentralized restoration for interdepndent networks
 using Judgment Call method <a class="bibtex reference internal" href="index.html#talebiyan2019c" id="id1">[TDO20]</a><a class="bibtex reference internal" href="index.html#talebiyan2019" id="id2">[TDO19]</a>, read the results,
 and compute comparison measures.</p>
-<section id="running-judgment-call">
+<div class="section" id="running-judgment-call">
 <h2>Running Judgment Call<a class="headerlink" href="#running-judgment-call" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="dindputils.run_judgment_call">
@@ -258,8 +260,8 @@ actually decides (as opposed to according to the judgment-based decisions).</p>
 </dl>
 </dd></dl>
 
-</section>
-<section id="reading-results-computing-comparison-measures">
+</div>
+<div class="section" id="reading-results-computing-comparison-measures">
 <h2>Reading results/Computing comparison measures<a class="headerlink" href="#reading-results-computing-comparison-measures" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="dindputils.read_results">
@@ -331,7 +333,7 @@ allocation type is Auntion. The default is ‘nan’.</p></li>
 <code class="sig-prename descclassname"><span class="pre">dindputils.</span></code><code class="sig-name descname"><span class="pre">read_resourcec_allocation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combinations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimal_combinations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'indp'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_result_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../results/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dindputils.read_resourcec_allocation" title="Permalink to this definition">¶</a></dt>
 <dd><p>This functions reads the resource allocation vectors by INDP and JC. Also,
 it computes the allocation gap between the respurce allocation by JC and
-and the optimal allocation by INDP <a class="bibtex reference internal" href="index.html#talebiyan2020a" id="id6">[TDO21]</a>.</p>
+and the optimal allocation by INDP <a class="bibtex reference internal" href="index.html#talebiyan2020a" id="id6">[TDO21b]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -382,8 +384,8 @@ by <a class="reference internal" href="#dindputils.read_results" title="dindputi
 </dl>
 </dd></dl>
 
-</section>
-<section id="other-functions">
+</div>
+<div class="section" id="other-functions">
 <h2>Other functions<a class="headerlink" href="#other-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="dindputils.generate_combinations">
@@ -466,8 +468,8 @@ checking if the time vector is sorted.</p>
 
 <div class="toctree-wrapper compound">
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -484,6 +486,9 @@ checking if the time vector is sorted.</p>
   <div role="contentinfo">
     <p>
         &#169; Copyright 2021, SISRRA.
+      <span class="lastupdated">
+        Last updated on Mar 17, 2021.
+      </span>
 
     </p>
   </div>
