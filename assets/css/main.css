@@ -1690,8 +1690,9 @@
 	}
 
 	h3 {
-		font-size: 1.35em;
+		font-size: 1.75em;
 		line-height: 1.5em;
+		color: white;
 	}
 
 	h4 {
@@ -1702,6 +1703,7 @@
 	h5 {
 		font-size: 0.9em;
 		line-height: 1.5em;
+		text-transform: none ;
 	}
 
 	h6 {
@@ -2355,6 +2357,15 @@
 				box-shadow: 0px 0.0375em 0.125em 0px rgba(0, 0, 0, 0.15);
 				display: block;
 				padding: 2em 1em;
+			}
+			.image.captioned h4 {
+				background-color: #fff;
+				box-shadow: 0px 0.0375em 0.125em 0px rgba(0, 0, 0, 0.15);
+				display: block;
+				padding: 0.5em 0.5em;
+			}
+			.image.captioned a:link, .image.captioned a:visited {
+				color: #a01634;
 			}
 
 			@media screen and (max-width: 736px) {
@@ -3089,7 +3100,7 @@
 	}
 
 	#banner {
-		padding: 13em 0 5em 0;
+		padding: 10em 0 5em 0;
 		background-attachment: fixed;
 		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
 		background-position: center top;
@@ -3120,7 +3131,7 @@
 		@media screen and (max-width: 1280px) {
 
 			#banner {
-				padding: 14em 0 11em 0;
+				padding: 10em 0 3em 0;
 			}
 
 				#banner h2 {
@@ -3132,7 +3143,7 @@
 		@media screen and (max-width: 980px) {
 
 			#banner {
-				padding: 9em 0 7em 0;
+				padding: 5em 0 5em 0;
 			}
 
 		}
@@ -3140,7 +3151,7 @@
 		@media screen and (max-width: 736px) {
 
 			#banner {
-				padding: 6em 2em 6em 2em;
+				padding: 4em 2em 2em 2em;
 			}
 
 				#banner br {
@@ -3160,7 +3171,7 @@
 		@media screen and (max-width: 480px) {
 
 			#banner {
-				padding: 4em 2em 4em 2em;
+				padding: 4em 2em 2em 2em;
 			}
 
 		}
