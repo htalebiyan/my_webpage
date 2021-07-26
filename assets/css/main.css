@@ -1876,6 +1876,9 @@
 		button.small,
 		.button.small {
 			font-size: 0.8em;
+			height: 2.15em;
+		    line-height: 2.25em;
+		    padding: 0 1.2em;
 		}
 
 		input[type="submit"].big,
