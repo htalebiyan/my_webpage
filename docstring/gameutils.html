@@ -4,17 +4,19 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <meta property="article:modified_time" content="2021-04-16T15:58:36-05:00" />
+    <meta property="article:modified_time" content="2021-06-25T19:28:59-05:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>INRSG and INRBG functions &mdash; Dec2py 32663ab documentation</title>
+  <title>N-INRG and B-INRG functions &mdash; Dec2py a23feed documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -32,6 +34,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -42,7 +45,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="INRSG and INRBG Classes" href="gameclasses.html" />
+    <link rel="next" title="N-INRG and B-INRG Classes" href="gameclasses.html" />
     <link rel="prev" title="Judgment Call Classes" href="dindpclasses.html" /> 
 </head>
 
@@ -67,7 +70,7 @@
             
             
               <div class="version">
-                0.4.1
+                0.4.2
               </div>
             
           
@@ -92,7 +95,7 @@
               
             
             
-              <p><span class="caption-text">Topics</span></p>
+              <p class="caption"><span class="caption-text">Topics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="run_samples.html">Interdepndent Network Restoration Decision-making (toy example)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="run_main.html">Interdepndent Network Restoration Decision-making (Complete Analysis Dashboard)</a></li>
@@ -103,10 +106,10 @@
 <li class="toctree-l2"><a class="reference internal" href="infrastructure.html">Infrastructure classes and functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dindputils.html">Judgment Call functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dindpclasses.html">Judgment Call Classes</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">INRSG and INRBG functions</a><ul class="simple">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">N-INRG and B-INRG functions</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="gameclasses.html">INRSG and INRBG Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gameclasses.html">N-INRG and B-INRG Classes</a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +162,7 @@
         
           <li><a href="backend.html">Backend Classes and Modules</a> &raquo;</li>
         
-      <li>INRSG and INRBG functions</li>
+      <li>N-INRG and B-INRG functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -203,12 +206,12 @@
 }
 </style>
 <section id="module-gameutils">
-<span id="inrsg-and-inrbg-functions"></span><h1>INRSG and INRBG functions<a class="headerlink" href="#module-gameutils" title="Permalink to this headline">¶</a></h1>
+<span id="n-inrg-and-b-inrg-functions"></span><h1>N-INRG and B-INRG functions<a class="headerlink" href="#module-gameutils" title="Permalink to this headline">¶</a></h1>
 <p>Functions that are used to run different types of games for the restoration of
 interdependent networks</p>
 <dl class="py function">
-<dt id="gameutils.analyze_NE">
-<code class="sig-prename descclassname"><span class="pre">gameutils.</span></code><code class="sig-name descname"><span class="pre">analyze_NE</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combinations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimal_combinations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gameutils.analyze_NE" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gameutils.analyze_NE">
+<span class="sig-prename descclassname"><span class="pre">gameutils.</span></span><span class="sig-name descname"><span class="pre">analyze_NE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combinations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimal_combinations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gameutils.analyze_NE" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function reads the results of analyses (INDP, JC, etc.) and the corresponding
 objects from file and aggregates the results in a dictionary.</p>
 <dl class="field-list simple">
@@ -226,9 +229,9 @@ involved in the INDP (or any other optimal results) collected by <code class="xr
 </dd></dl>
 
 <dl class="py function">
-<dt id="gameutils.run_game">
-<code class="sig-prename descclassname"><span class="pre">gameutils.</span></code><code class="sig-name descname"><span class="pre">run_game</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot2D</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gameutils.run_game" title="Permalink to this definition">¶</a></dt>
-<dd><p>Finds interdepndent restoration strategies using a decentralized hueristic,
+<dt class="sig sig-object py" id="gameutils.run_game">
+<span class="sig-prename descclassname"><span class="pre">gameutils.</span></span><span class="sig-name descname"><span class="pre">run_game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_cmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot2D</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gameutils.run_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds interdependent restoration strategies using a decentralized heuristic,
 Judgment Call <a class="bibtex reference internal" href="index.html#talebiyan2019c" id="id1">[TDO20]</a><a class="bibtex reference internal" href="index.html#talebiyan2019" id="id2">[TDO19]</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -256,7 +259,7 @@ Judgment Call <a class="bibtex reference internal" href="index.html#talebiyan201
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="gameclasses.html" class="btn btn-neutral float-right" title="INRSG and INRBG Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gameclasses.html" class="btn btn-neutral float-right" title="N-INRG and B-INRG Classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="dindpclasses.html" class="btn btn-neutral float-left" title="Judgment Call Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -266,7 +269,7 @@ Judgment Call <a class="bibtex reference internal" href="index.html#talebiyan201
     <p>
         &#169; Copyright 2021, SISRRA.
       <span class="lastupdated">
-        Last updated on Apr 16, 2021.
+        Last updated on Jun 25, 2021.
       </span>
 
     </p>
