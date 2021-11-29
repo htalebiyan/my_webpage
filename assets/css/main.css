@@ -1705,6 +1705,7 @@
 		font-size: 0.9em;
 		line-height: 1.5em;
 		text-transform: none ;
+		text-align: justify;
 	}
 
 	h6 {
