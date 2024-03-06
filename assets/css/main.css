@@ -1651,7 +1651,7 @@
 
 	a {
 		text-decoration: underline;
-		color: #f32853;
+		color: #2877ff;
 	}
 
 		a:hover {
@@ -1950,7 +1950,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #f32853;
+			background-color: #005EFF;
 			color: #ffffff !important;
 		}
 
@@ -1959,7 +1959,7 @@
 			input[type="button"].special:hover,
 			button.special:hover,
 			.button.special:hover {
-				background-color: #f44066;
+				background-color: #0A1264;
 			}
 
 			input[type="submit"].special:active,
@@ -1967,7 +1967,7 @@
 			input[type="button"].special:active,
 			button.special:active,
 			.button.special:active {
-				background-color: #f21040;
+				background-color: #005EFF;
 			}
 
 		@media screen and (max-width: 480px) {
